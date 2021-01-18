@@ -21,8 +21,6 @@ jobs:
 
       # build APK (ADB also possible!)
       - uses: subosito/flutter-action@v1
-        with:
-          flutter-version: '1.26.0'
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk
