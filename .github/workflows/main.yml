@@ -34,10 +34,13 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: beta
+        if: success() || failure()
       - run: flutter config --enable-web
+        if: success() || failure()
       - run: flutter pub get
-      - run: flutter test
+        if: success() || failure()
       - run: flutter build web --release
+        if: success() || failure()
       - run: |
           cd build/web
           git init
@@ -49,3 +52,4 @@ jobs:
           git add --all
           git commit -m "auto update"
           git push origin gh-pages -f
+        if: success() || failure()
