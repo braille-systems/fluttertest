@@ -28,28 +28,3 @@ jobs:
         with:
           name: release-apk
           path: build/app/outputs/apk/release/app-release.apk
-
-      # build for the web
-      # credit: https://medium.com/flutter-community/flutter-web-github-actions-github-pages-dec8f308542a
-      - uses: subosito/flutter-action@v1
-        with:
-          channel: beta
-        if: success() || failure()
-      - run: flutter config --enable-web
-        if: success() || failure()
-      - run: flutter pub get
-        if: success() || failure()
-      - run: flutter build web --release
-        if: success() || failure()
-      - run: |
-          cd build/web
-          git init
-          git config --global user.email valera.zuev.zva@gmail.com
-          git config --global user.name zuevval
-          git status
-          git remote add origin https://${{secrets.commit_secret}}@github.com/braille-systems/fluttertest.git
-          git checkout -b gh-pages
-          git add --all
-          git commit -m "auto update"
-          git push origin gh-pages -f
-        if: success() || failure()
