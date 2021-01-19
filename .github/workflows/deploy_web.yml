@@ -12,7 +12,10 @@ jobs:
 
     steps:
       - name: change base tag in html
-        run: sed -i 's,="/",="/fluttertest/",g' web/index.html
+        run: |
+          ls
+          sed -i 's,="/",="/fluttertest/",g' web/index.html
+        working-directory: ./
       - uses: actions/checkout@v2
       - uses: subosito/flutter-action@v1
         with:
