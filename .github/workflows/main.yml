@@ -22,8 +22,11 @@ jobs:
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk --debug # https://github.com/flutter/flutter/issues/58247#issuecomment-636500680
+      - run: flutter build apk --profile
       - run: flutter build apk --release
       - uses: actions/upload-artifact@v1
         with:
-          name: release-apk
-          path: build/app/outputs/apk/release/app-release.apk
+          name: apk
+          path: |
+            build/app/outputs/apk/release/app-release.apk
+            build/app/outputs/apk/debug/app-debug.apk
