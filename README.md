@@ -1,5 +1,8 @@
 # fluttertest
 
+[![Flutter CI](https://github.com/braille-systems/fluttertest/workflows/Flutter%20CI/badge.svg)](https://github.com/braille-systems/fluttertest/actions?query=workflow%3A%22Flutter+CI%22)
+[![Gh-Pages](https://github.com/braille-systems/fluttertest/workflows/Gh-Pages/badge.svg)](https://github.com/braille-systems/fluttertest/actions?query=workflow%3AGh-Pages)
+
 A new Flutter project.
 
 ## Getting Started
